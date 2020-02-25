@@ -9,7 +9,11 @@ const port = process.env.PORT || 3000;
 
 app.get("*", function(req, res) {
   res.send("Hi works...");
-  fs.appendFileSync("./log", `log: ${Date.now().toString()}\n`);
+  const date = new Date()
+  const msg = `log: ${date}\n`
+  
+  fs.appendFileSync("./log", msg)
+  console.log(msg)
 });
 
 module.exports = {
